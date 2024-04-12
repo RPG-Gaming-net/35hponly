@@ -13,7 +13,7 @@ public class Config : BasePluginConfig
 public partial class CustomHealth : BasePlugin, IPluginConfig<Config>
 {
     public override string ModuleName => "CustomHealth";
-    public override string ModuleVersion => "1.0.1";
+    public override string ModuleVersion => "1.0.2";
     public override string ModuleAuthor => "_audio / The Bowered [NL]";
 
     public required Config Config { get; set; }
@@ -40,17 +40,14 @@ public partial class CustomHealth : BasePlugin, IPluginConfig<Config>
 
         if (playerPawn.Health > Config.SetPlayerHealth)
         {
-            Server.NextFrame(() =>
+          Server.NextFrame(() =>
+          {
+            AddTimer(0.75f, () =>
             {
-                Server.NextFrame(() =>
-                {
-                    Server.NextFrame(() =>
-                    {
-                        playerPawn.Health = Config.SetPlayerHealth;
-                        Utilities.SetStateChanged(playerPawn, "CBaseEntity", "m_iHealth");
-                    });
-                });
+              playerPawn.Health = Config.SetPlayerHealth;
+              Utilities.SetStateChanged(playerPawn, "CBaseEntity", "m_iHealth");
             });
+          });
         }
 
         return HookResult.Continue;
