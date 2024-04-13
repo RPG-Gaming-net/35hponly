@@ -26,28 +26,28 @@ public partial class CustomHealth : BasePlugin, IPluginConfig<Config>
     {
         CCSPlayerController? player = @event.Userid;
 
+        if (player == null || !player.IsValid || player.PlayerPawn == null || !player.PlayerPawn.IsValid)
+        {
+            return HookResult.Continue;
+        }
+
         var playerPawn = player.PlayerPawn.Value;
 
-        if (player == null
-            || player.PlayerPawn == null
-            || !player.IsValid
-            || !player.PlayerPawn.IsValid
-            || player.Connected != PlayerConnectedState.PlayerConnected
-            || player.PlayerPawn.Value?.LifeState != (byte)LifeState_t.LIFE_ALIVE)
+        if (playerPawn.LifeState != (byte)LifeState_t.LIFE_ALIVE || player.Connected != PlayerConnectedState.PlayerConnected)
         {
             return HookResult.Continue;
         }
 
         if (playerPawn.Health > Config.SetPlayerHealth)
         {
-          Server.NextFrame(() =>
-          {
-            AddTimer(0.75f, () =>
+            Server.NextFrame(() =>
             {
-              playerPawn.Health = Config.SetPlayerHealth;
-              Utilities.SetStateChanged(playerPawn, "CBaseEntity", "m_iHealth");
+                AddTimer(0.75f, () =>
+                {
+                    playerPawn.Health = Config.SetPlayerHealth;
+                    Utilities.SetStateChanged(playerPawn, "CBaseEntity", "m_iHealth");
+                });
             });
-          });
         }
 
         return HookResult.Continue;
