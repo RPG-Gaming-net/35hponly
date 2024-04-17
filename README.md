@@ -15,4 +15,7 @@ Drag and drop from the BUILD section to game/csgo/addons/counterstrikesharp/plug
 
 ### Configuration
 
-Configure the file CustomHealth.json generated on addons/counterstrikesharp/configs/plugins/RPG
+Configure the file CustomHealth.json generated on addons/counterstrikesharp/configs/plugins/CustomHealth
+
+There you can change the health:
+Default value: 35
