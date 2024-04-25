@@ -1,21 +1,18 @@
 ### CustomHealth Plugin
 
-Plugin for any server that needs to spawn with a specific health.
+CustomHealth Plugin is designed for servers that require spawning with a specific health to start with, such as 35HP Knife servers in Counter-Strike.
 
-(35HP Knife servers for example)
+#### Requirements
 
-### Requirements
+- [CounterStrikeSharp](https://github.com/roflmuffin/CounterStrikeSharp/) (version 179 or higher)
 
-* [CounterStrikeSharp](https://github.com/roflmuffin/CounterStrikeSharp/) (version 179 or higher)
+#### Installation
 
-### Installation
+Simply drag and drop the plugin from the BUILD section to `game/csgo/addons/counterstrikesharp/plugins` directory.
 
-Drag and drop from the BUILD section to game/csgo/addons/counterstrikesharp/plugins
+#### Configuration
 
+Navigate to `addons/counterstrikesharp/configs/plugins/CustomHealth` and configure the `CustomHealth.json` file. 
+You can adjust the health value here; the default is set to `35`.
 
-### Configuration
-
-Configure the file CustomHealth.json generated on addons/counterstrikesharp/configs/plugins/CustomHealth
-
-There you can change the health:
-Default value: 35
+This plugin provides a convenient solution for customizing spawn health.
