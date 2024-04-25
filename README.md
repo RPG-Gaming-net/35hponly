@@ -8,7 +8,8 @@ CustomHealth Plugin is designed for servers that require spawning with a specifi
 
 #### Installation
 
-Simply drag and drop the plugin from the BUILD section to `game/csgo/addons/counterstrikesharp/plugins` directory.
+Simply drag and drop the plugin from the ZIP section to `game/csgo/addons/counterstrikesharp/plugins` directory.
+Make a folder if it doesn't make a folder itself called; `CustomHealth`
 
 #### Configuration
 
