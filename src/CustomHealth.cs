@@ -13,7 +13,7 @@ public class Config : BasePluginConfig
 public partial class CustomHealth : BasePlugin, IPluginConfig<Config>
 {
     public override string ModuleName => "CustomHealth";
-    public override string ModuleVersion => "1.0.3";
+    public override string ModuleVersion => "1.0.4";
     public override string ModuleAuthor => "_audio / The Bowered [NL]";
 
     public required Config Config { get; set; }
